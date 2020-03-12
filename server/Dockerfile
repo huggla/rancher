@@ -1,4 +1,4 @@
-FROM rancher/server-base:v1.0.0
+FROM huggla/rancher-server-base
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
