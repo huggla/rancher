@@ -33,7 +33,8 @@ ADD artifacts /usr/share/cattle
 ADD service /service
 ENV S6_SERVICE_DIR /service
 
-COPY target/*static.tar.gz /s6-statics/
+#COPY target/*static.tar.gz /s6-statics/
+RUN curl --silent --location --create-dirs https://github.com/just-containers/s6-overlay/releases/download/v1.19.1.1/{s6-overlay-amd64.tar.gz} --output /s6-statics/#1
 
 EXPOSE 8080
 ENV CATTLE_HOST_API_PROXY_MODE embedded
