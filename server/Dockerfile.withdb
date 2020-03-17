@@ -1,0 +1,4 @@
+FROM huggla/rancher-server:1.6.29-nodb
+
+RUN apt-get update && apt-get install -y --no-install-recommends 
+    && rm -rf /var/lib/apt/lists/*
