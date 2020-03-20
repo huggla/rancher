@@ -1,4 +1,4 @@
-FROM rancher/agent-base:v0.3.0
+FROM huggla/rancher-agent-base
 COPY register.py resolve_url.py run.sh /
 ENTRYPOINT ["/run.sh"]
 LABEL "io.rancher.container.system"="rancher-agent"
