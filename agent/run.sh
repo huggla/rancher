@@ -140,11 +140,11 @@ launch_agent()
         export no_proxy=$NO_PROXY
     fi
 
-    if [ "${CATTLE_VAR_LIB_WRITABLE}" = "true" ]; then
-        opts="-v /var/lib/rancher:/var/lib/rancher"
-    else
+#    if [ "${CATTLE_VAR_LIB_WRITABLE}" = "true" ]; then
+ #       opts="-v /var/lib/rancher:/var/lib/rancher"
+  #  else
         opts="-v rancher-agent-state:/var/lib/rancher"
-    fi
+  #  fi
 
     docker run \
         -d \
@@ -314,6 +314,7 @@ read_rancher_agent_env()
     local save=$RANCHER_AGENT_IMAGE
     eval $(docker inspect rancher-agent | jq -r '"export \"" + .[0].Config.Env[] + "\""')
     RANCHER_AGENT_IMAGE=$save
+    RANCHER_AGENT_IMAGE="huggla/rancher-agent-base:test"
 }
 
 check_url()
