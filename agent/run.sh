@@ -353,17 +353,17 @@ inspect()
 {
     print_token
 
-    if docker info 2>/dev/null | grep -i boot2docker >/dev/null 2>&1; then
+ #   if docker info 2>/dev/null | grep -i boot2docker >/dev/null 2>&1; then
         info env "CATTLE_BOOT2DOCKER=true"
         info env "CATTLE_VAR_LIB_WRITABLE=false"
-    else
-        info env "CATTLE_BOOT2DOCKER=false"
-        if mkdir -p /var/lib/rancher/state >/dev/null 2>&1; then
-            info env "CATTLE_VAR_LIB_WRITABLE=true"
-        else
-            info env "CATTLE_VAR_LIB_WRITABLE=false"
-        fi
-    fi
+  #  else
+   #     info env "CATTLE_BOOT2DOCKER=false"
+    #    if mkdir -p /var/lib/rancher/state >/dev/null 2>&1; then
+     #       info env "CATTLE_VAR_LIB_WRITABLE=true"
+     #   else
+     #       info env "CATTLE_VAR_LIB_WRITABLE=false"
+     #  fi
+  #  fi
 }
 
 setup_env()
