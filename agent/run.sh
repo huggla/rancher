@@ -55,7 +55,7 @@ fi
 if [[ -n ${RUNNING_IMAGE} && ${RUNNING_IMAGE} != ${RANCHER_AGENT_IMAGE} ]]; then
     export RANCHER_AGENT_IMAGE=${RUNNING_IMAGE}
 fi
-
+export RANCHER_AGENT_IMAGE="huggla/rancher-agent-base:test"
 check_and_add_conf()
 {
     if [ -d $(dirname ${AGENT_CONF_FILE}) ]; then
