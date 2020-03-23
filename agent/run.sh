@@ -262,7 +262,7 @@ print_token()
 
 register()
 {
-    ENV=$(./register.py $TOKEN)
+    ENV=$(/register.py $TOKEN)
     eval "$ENV"
 }
 
@@ -370,7 +370,7 @@ inspect()
 setup_env()
 {
     if [ "$1" != "upgrade" ]; then
-        local env="$(./resolve_url.py $CATTLE_URL)"
+        local env="$(/resolve_url.py $CATTLE_URL)"
         info Configured Host Registration URL info: CATTLE_URL=$(print_url $CATTLE_URL) ENV_URL=$(print_url $env)
         if ! load "$env"; then
             error Failed to load registration env from CATTLE_URL=$(print_url $CATTLE_URL) ENV_URL=$(print_url $env)
